@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" F rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <br><br><br>
+                <h1 class="text-center">
+                    TABELA INTERATIVA
+                </h1>
+                <br><br>•<a href="home.html" title="home" alt="">Home</a>
+                •<a href="sobre.html" title="sobre" alt="">Sobre mim!</a><br><br>
+                <div class="row">
+                    <div class="col-md-8">
+                        <table id="tabela" class="table" >
+                            <thead>
+                                <tr>
+                                   
+                                    <th>
+                                        COD
+                                    </th>
+                                    <th>
+                                       Nome
+                                    </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                            </tbody>
+                        </table >
+                    </div>
+                    <div class="col-md-4">
+                        <dl>
+                            <dt>
+                                <h2>Exercicio Tabela!</h2>
+                            </dt>
+                            <dd>
+                                <span><strong>Cadastrar!</strong> <br>
+                                <p>Escreva aqui o nome do usuario!!!</p>
+                                </span>
+                            </dd>
+                        </dl> 
+                        
+                        <input type="text" id="nome">
+                        <button onclick="tabelinha()" type="button" class="btn btn-success btn-lg btn-block">
+                            Button
+                        </button>
+                        <h3>Remover</h3><p>Digite o codigo do elemento</p>
+                        <input type="Number"id="remov" >
+                        <button onclick="remocao()" type="button" class="btn btn-success btn-lg btn-block">Confirma</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var cod=0;
+    function tabelinha(){  
+        cod++;
+        var remov="<td><button onclick='remocao(this)'type='button' class='btn btn-danger btn-lg btn-block'>DEleta</button></td>"
+        var hg= "<strong>#</strong>"
+        var nome=document.getElementById("nome").value;
+        var linha= "<tr><td>"+hg+cod+"</td><td>"+nome+"</td>"+remov;
+        document.getElementById("tabela").innerHTML+=linha;
+        document.getElementById("tabela").innerHTML+="</tr>";
+        document.getElementById("nome").value = null;
+
+    }
+
+    function remocao(id){
+        var i=id.parentNode.parentNode.rowIndex;
+        document.getElementById('tabela').deleteRow(i);
+        // var a=cod
+        // var desejado= document.getElementById("remov").value;
+        // while(desejado!=cod){
+        //     a--
+        //     if(a==desejado){
+                
+        //         document.getELementById("cod").remove();  
+        //     }
+        // }
+    }
+</script>
