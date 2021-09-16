@@ -50,9 +50,9 @@
         <h3>informe a hora e os minutos:</h3>
         <br>
         <input id="h1" type="Number" placeholder="hora inicial">H
-        <input id="m1" type="Number" placeholder="hora inicial">M<br><br>
+        <input id="m1" type="Number" placeholder="minuto inicial">M<br><br>
         <input id="h2" type="Number" placeholder="hora final">H
-        <input id="m2" type="Number" placeholder="hora final">M<br><br>
+        <input id="m2" type="Number" placeholder="minuto final">M<br><br>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
@@ -67,15 +67,25 @@
                 </div>
             </div>
         </div>
-
-        <div id="div">aquir</div>
+        <br>
+        <h2>
+            <div id="div">aquir</div>
+        </h2>
+        <br>
+        <hr><br><br>
+        <h3>Calcular quanto tempo falta para uma determinada hora! </h3>
+        <input id="h" type="Number" placeholder="Hora!">
+        <input id="m" type="Number" placeholder="Minuto!">
+        <input id="d" type="Number" placeholder="Dias!">
+        <button onclick="ai()">calcular!</button>
+        <div id="tp">00:00*sem calculo</div>
     </center>
 </body>
 
 </html>
 <script>
     var hf = Number, mf = Number
-    var adcVh =  Number, adcVm =  Number
+    var adcVh = Number, adcVm = Number
     function diferenca() {
         var vh1 = Number(document.getElementById("h1").value), vh2 = Number(document.getElementById("h2").value)
         var vm1 = Number(document.getElementById("m1").value), vm2 = Number(document.getElementById("m2").value)
@@ -83,9 +93,9 @@
         if (vh1 <= vh2) {
             hf = vh2 - vh1
             mf = vm2 - vm1
-            if(vh1==vh2){
-                if(vm2<vm1){
-                    mf=vm1 - vm2
+            if (vh1 == vh2) {
+                if (vm2 < vm1) {
+                    mf = vm1 - vm2
                 }
             }
         } else {
@@ -100,10 +110,17 @@
         while (mf >= 60) {
 
             mf = mf - 60
-            hf ++
+            hf++
             mf = mf
         }
-        document.getElementById("div").innerHTML = hf + "h " + mf + "m"
+        //impressao
+        if (hf < 10) {
+            hf = "0" + hf
+        }
+        if (mf < 10) {
+            mf = "0" + mf
+        }
+        document.getElementById("div").innerHTML = hf + ":" + mf
     }
     function soma() {
         var vh1 = Number(document.getElementById("h1").value), vh2 = Number(document.getElementById("h2").value)
@@ -119,7 +136,53 @@
             hf = hf + adcVh
             mf = mf
         }
-        document.getElementById("div").innerHTML = hf + "h " + mf + "m"
+
+        //impressao
+        if (hf < 10) {
+            hf = "0" + hf
+        }
+        if (mf < 10) {
+            mf = "0" + mf
+        }
+        document.getElementById("div").innerHTML = hf + ":" + mf
+    }
+
+
+    function ai() {
+        var hora = Number(document.getElementById("h").value)
+        var minutos = Number(document.getElementById("m").value)
+        var dias = Number(document.getElementById("d").value)
+        var quanthora = Number(quanthora)
+        if (hora > 23 || hora < 0 || minutos > 59 || minutos < 0) {
+            stop;
+            alert("Você digitou algum numero errado")
+            reset();
+        } else if (hora === null) {
+            hora = 0
+        }
+        var data = new Date()
+        var horesagora = data.getHours()
+        var minutosagora = data.getMinutes()
+        var minutostotal = minutos = minutosagora
+        var horasmais = 0
+        var horaini = hora
+        var minutoini = minutos
+        for (var i = 0; i < dias; i++) {
+            hora = hora + 24
+        }
+        if (minutoini < 10) {
+            minutoini = "" + minutoini
+        }
+        if (minutostotal < 0) {
+            horasmais--
+            minutostotal = minutostotal + 60
+        }
+        if (hora < horasagora) {
+            hora = hora + 24
+        }
+        var horastotal = (hora - horasagore) + horasmais
+        var imprimir = horastotal + ":" + minutostotal
+        document.getElementById("tp").innerHTML = imprimir
     }
 
     function reset() {
@@ -133,10 +196,3 @@
 
 
     }
-
-
-
-
-
-
-</script>
