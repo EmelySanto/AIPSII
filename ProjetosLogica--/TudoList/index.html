@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tudo List</title>
+    <style type="text/css">
+        body {
+            background-color: #d8b784c7;
+            background-position-x: center;
+            margin-left: 20%;
+            margin-right: 20%;
+            border: 3px solid rgba(155, 99, 26, 0.904);
+            padding: 20px 20px 10px 10px;
+            font-family: courier, arial, helvetica;
+        }
+
+        button {
+            background-color: #724707;
+            border: none;
+            color: white;
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 1px 1px;
+            cursor: pointer;
+        }
+
+        .button1 {
+            border-radius: 8px;
+            padding: 5px 12px;
+            border: 2px solid #724707;
+        }
+
+        hr {
+            height: 2px;
+            color: #724707;
+            background-color: #724707;
+            border: none;
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        
+        <h1 style="color:white;">≪•◦ ❈ ◦•≫ To-do List ≪•◦ ❈ ◦•≫</h1>
+        <hr>
+        <hr>
+
+        <h3>Crie seu proprio check-list</h3>
+
+        <h3><input type="text" name="" id="tarefinha" size="70">
+            <button class="button button1" onclick="adicionarTarefa()">adicionar</button>
+        </h3>
+        <hr />
+    </center>
+    <h3>Lista</h3>
+    <ul id="lista"></ul>
+
+    <script src="index.js"></script>
+    <rigth><img src="imagens/gatos.jpg" width="200px"></rigth>
+</body>
+
+</html>
