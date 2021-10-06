@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JACKSON</title>
+    <style type="text/css">
+        body {
+            background-color: #d7dbbcc7;
+            background-position-x: center;
+            margin-left: 5%;
+            margin-right: 5%;
+            border: 3px dotted rgba(59, 56, 56, 0.877);
+            padding: 10px 10px 10px 10px;
+            font-family: sans-serif;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Atividade 01/07 - Desenvolvimento de Sistemas</h1>
+    <p id="aa">Aqui vai aparecer a matriz!</p><button onclick="criamatriz()">opa</button>
+    <br>
+    Digite o número que você quer deletar - <input type="number" id="numero"><button onclick="delet()">delete</button>
+</body>
+
+</html>
+<script>
+    var matriz = [[], [], []]
+    function criamatriz() {
+        var resp = ""
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 2; j++) {
+                matriz[i][j] = Math.floor(Math.random() * 100)
+            }
+            resp += "<br>"
+        }
+        imprimematriz();
+    }
+    function delet() {
+        var quest = parseInt(document.getElementById("numero").value)
+        var men = "Deletado com sucesso "
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 2; j++) {
+                if (quest == matriz[i][j]) {
+                    matriz[i][j] = null
+                    var men = "Deletado com sucesso "
+                    break;
+                } else {
+                    men = "esse numero nao se encontra no nosso sistema!!"
+                }
+            }
+        }
+        alert(men)
+        imprimematriz();
+    }
+    function imprimematriz() {
+        var resp = ""
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 2; j++) {
+                resp += matriz[i][j] + " - "
+            }
+            resp += "<br>"
+        }
+        document.getElementById("aa").innerHTML = resp
+    }
+
+</script>
